@@ -66,6 +66,7 @@
 
         div {
           padding: 6px 13px;
+          line-height: 1;
           background-color: var(--color-white);
           border: 1px solid var(--color-border);
           color: #25252560;
@@ -288,5 +289,12 @@
         }
       }
     }
+  }
+}
+
+@media (hover: hover) {
+  .product__item-top .top__info button:hover {
+    border-color: var(--color-primary);
+    background-color: #e4f5f1;
   }
 }

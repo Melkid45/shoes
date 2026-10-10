@@ -4,14 +4,15 @@
   &__body {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    min-height: 920px;
+    height: calc(100svh - var(--header-height));
+    min-height: min-content;
   }
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    padding: 100px var(--container-padding);
+    padding: clamp(48px, 9svh, 100px) var(--container-padding);
   }
   &__text {
     display: flex;
@@ -114,7 +115,7 @@
   }
   @include bp.down(wide) {
     &__body {
-      min-height: clamp(600px, 48vw, 920px);
+      min-height: min-content;
     }
     &__text {
       gap: 32px;
@@ -136,14 +137,16 @@
   @include bp.down(laptop) {
     &__body {
       grid-template-columns: 1fr;
+      grid-template-rows: minmax(220px, 1fr) auto;
     }
     &__visual {
       order: -1;
-      height: clamp(374px, 60vw, 560px);
+      height: auto;
+      min-height: 220px;
     }
     &__content {
-      padding: 40px var(--container-padding) 0;
-      gap: 48px;
+      padding: 32px var(--container-padding) 24px;
+      gap: 24px;
     }
     &__actions {
       position: static;
@@ -192,7 +195,7 @@
       }
     }
     &__visual {
-      height: 374px;
+      height: auto;
     }
 
   }
