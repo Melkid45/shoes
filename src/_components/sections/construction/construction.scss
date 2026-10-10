@@ -1,0 +1,175 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.construction {
+  &__diagram {
+    position: relative;
+    aspect-ratio: 1920 / 1222;
+    background: #e8f4ef;
+  }
+  &__shoe {
+    position: absolute;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    &--side {
+      left: 24.01%;
+      top: 18.17%;
+      width: 52.71%;
+      height: 33.06%;
+
+    }
+    &--top {
+      left: 24.01%;
+      top: 60.97%;
+      width: 53.39%;
+      height: 30.85%;
+
+    }
+  }
+  &__leaders {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  &__note {
+    position: absolute;
+    z-index: 1;
+    h3 {
+      font-size: clamp(13px, 1.25vw, 24px);
+      margin-bottom: 22px;
+    }
+    p {
+      color: #79817e;
+      font-size: clamp(11px, 0.833vw, 16px);
+    }
+    &--lining {
+      left: 7.7%;
+      top: 8.8%;
+      width: 20%;
+    }
+    &--support {
+      left: 50.5%;
+      top: 7.2%;
+      width: 25%;
+    }
+    &--laces {
+      left: 65%;
+      top: 17%;
+      width: 21%;
+    }
+    &--leather {
+      left: 76%;
+      top: 27.6%;
+      width: 23%;
+    }
+    &--heel {
+      left: 5.2%;
+      top: 49.6%;
+      width: 20%;
+    }
+    &--sewn {
+      left: 40%;
+      top: 53%;
+      width: 20%;
+    }
+    &--sole {
+      left: 76%;
+      top: 49.6%;
+      width: 22%;
+    }
+    &--insole {
+      left: 7.7%;
+      top: 83%;
+      width: 22%;
+    }
+    &--last {
+      left: 79.5%;
+      top: 82.7%;
+      width: 20%;
+    }
+  }
+  &__bottom {
+    background: #e8f4ef;
+    padding-block: 0 100px;
+    .container {
+      border-top: 1px solid var(--color-border);
+      padding-top: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+  }
+  @include bp.down(laptop) {
+    &__diagram {
+      aspect-ratio: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 32px;
+    }
+    &__notes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+    }
+    &__note {
+      position: static;
+      width: auto;
+      h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+    &__shoe {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2.5;
+      img {
+        position: static;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &__leaders {
+      display: none;
+    }
+    &__bottom {
+      padding: 48px 32px 32px;
+      .container {
+        width: 100%;
+        padding-top: 0;
+        border: 0;
+        flex-direction: column;
+        align-items: stretch;
+        .button {
+          max-width: none;
+        }
+      }
+    }
+  }
+  @include bp.down(tablet) {
+    .block--pb {
+      padding-bottom: 24px;
+    }
+    &__notes {
+      grid-template-columns: 1fr;
+    }
+    &__bottom h3 {
+      font-size: 22px;
+    }
+  }
+}
+
+.construction__bottom .text--xl {
+  line-height: 1.1;
+}

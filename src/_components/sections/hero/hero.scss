@@ -1,0 +1,209 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.hero {
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 920px;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 100px var(--container-padding);
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    h1 {
+      letter-spacing: -0.5px;
+      span {
+        color: var(--color-primary);
+      }
+    }
+    p {
+      color: var(--color-gray);
+      max-width: 830px;
+    }
+  }
+  &__actions {
+    position: absolute;
+    bottom: 48px;
+    inset-inline: var(--container-padding);
+    display: flex;
+    align-items: center;
+    gap: 42px;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-gray);
+    svg {
+      flex-shrink: 0;
+    }
+  }
+  &__visual {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+  }
+  &__slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    .splide__track, .splide__list, .splide__slide { height: 100%; }
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+  &__visual::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 0;
+    background: linear-gradient(transparent, #0009);
+    pointer-events: none;
+  }
+  &__count {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    color: #ffffff80;
+    z-index: 1;
+  }
+  &__caption {
+    position: absolute;
+    bottom: 48px;
+    inset-inline: 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    color: white;
+    z-index: 1;
+  }
+  &__model {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    p {
+      color: #ffffff80;
+    }
+  }
+  &__arrows {
+    display: flex;
+    gap: 12px;
+    button {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      background: transparent;
+      color: white;
+      &:first-child svg {
+        rotate: 180deg;
+      }
+      &:last-child {
+        background: var(--color-primary);
+      }
+    }
+  }
+  @include bp.down(wide) {
+    &__body {
+      min-height: clamp(600px, 48vw, 920px);
+    }
+    &__text {
+      gap: 32px;
+    }
+    &__actions {
+      gap: 24px;
+      flex-wrap: wrap;
+      .button {
+        padding-inline: 32px;
+      }
+    }
+    &__link {
+      gap: 24px;
+    }
+    &__caption {
+      inset-inline: 32px;
+    }
+  }
+  @include bp.down(laptop) {
+    &__body {
+      grid-template-columns: 1fr;
+    }
+    &__visual {
+      order: -1;
+      height: clamp(374px, 60vw, 560px);
+    }
+    &__content {
+      padding: 40px var(--container-padding) 0;
+      gap: 48px;
+    }
+    &__actions {
+      position: static;
+      flex-direction: column-reverse;
+      align-items: stretch;
+      gap: 16px;
+      .button {
+        max-width: none;
+      }
+    }
+    &__caption {
+      inset-inline: 16px;
+      bottom: 16px;
+    }
+    &__count {
+      display: none;
+    }
+  }
+  @include bp.down(tablet) {
+    &__text {
+      gap: 16px;
+      .heading--xl {
+        font-size: 24px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    &__caption {
+      gap: 12px;
+    }
+    &__model {
+      h2 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 14px;
+        max-width: 225px;
+      }
+    }
+    &__arrows {
+      gap: 4px;
+      button {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &__visual {
+      height: 374px;
+    }
+
+  }
+}
+
+@include bp.up(wide) {
+  .hero__actions > .button {
+    width: 251px;
+    height: 58px;
+    padding-inline: 24px;
+  }
+}
+
+.hero__arrows button:focus-visible { outline: 2px solid white; outline-offset: 4px; }

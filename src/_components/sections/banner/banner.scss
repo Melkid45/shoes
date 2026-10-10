@@ -1,0 +1,58 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.banner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    &:last-child {
+      .banner__item-text {
+        background: #242c2a;
+        h3 {
+          color: var(--color-white);
+        }
+        p {
+          color: #ffffff99;
+        }
+      }
+    }
+    &-text {
+      padding: 100px 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      background: #f3f6f5;
+      p {
+        color: #4b5450;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.banner .banner__item-text {
+  padding: clamp(32px, 5.21vw, 100px) clamp(24px, 9.375vw, 180px);
+}
+@include bp.down(tablet) {
+  .banner__item {
+    grid-template-columns: 1fr;
+  }
+  .banner .banner__item-text {
+    padding: 32px var(--container-padding);
+    gap: 24px;
+  }
+  .banner img {
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+  }
+  .banner__item:last-child img {
+    order: 2;
+  }
+}

@@ -1,0 +1,16 @@
+.block {
+  padding-block: var(--default-padding);
+  position: relative;
+  &--hero {
+    padding-block: var(--hero-padding) var(--default-padding);
+  }
+  &--pt {
+    padding-block: var(--default-padding) 0;
+  }
+  &--pb {
+    padding-block: 0 var(--default-padding);
+  }
+  &--none {
+    padding-block: 0 0;
+  }
+}

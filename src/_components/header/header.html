@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="./header.scss" />
+<header class="header">
+  <div class="container">
+    <div class="header__body">
+      <a
+        class="header__logo"
+        href="./index.html"
+        aria-label="МягкаяОбувь — главная"
+      >
+        <img src="@/assets/_images/logo.svg" alt="МягкаяОбувь" />
+      </a>
+      <nav
+        class="header__navigation"
+        id="header-navigation"
+        aria-label="Главное меню"
+      >
+        <ul>
+          <li class="text text--md">
+            <a href="./phylosophy.html">Философия МягкойОбуви</a>
+          </li>
+          <li class="text text--md">
+            <details class="header__dropdown" data-dropdown>
+              <summary>Каталог <i data-lucide="chevron-down"></i></summary>
+              <div class="header__submenu">
+                <a href="./catalog.html">Все модели</a>
+                <a href="./catalog.html">Женская обувь</a>
+                <a href="./catalog.html">Мужская обувь</a>
+              </div>
+            </details>
+          </li>
+          <li class="text text--md"><a href="./buy.html">Где купить</a></li>
+          <li class="text text--md">
+            <details class="header__dropdown" data-dropdown>
+              <summary>О нас <i data-lucide="chevron-down"></i></summary>
+              <div class="header__submenu">
+                <a href="./about.html">О компании</a>
+                <a href="./review.html">Отзывы</a>
+                <a href="./guard.html">Гарантия и возврат</a>
+                <a href="./buy.html#delivery">Доставка и оплата</a>
+              </div>
+            </details>
+          </li>
+        </ul>
+        <div class="header__mobile-links">
+          <a href="./person.html">Личный кабинет и избранное</a>
+          <a href="./card.html">Корзина</a>
+        </div>
+      </nav>
+      <div class="header__action">
+        <div class="header__action-search" role="search">
+          <i data-lucide="search"></i>
+          <input
+            placeholder="Поиск"
+            aria-label="Поиск по каталогу"
+            class="text text--sm"
+            type="search"
+          />
+        </div>
+        <div class="header__action-buttons">
+          <a
+            href="./person.html#favorites"
+            class="header__desktop-action"
+            aria-label="Избранное"
+            ><i data-lucide="heart"></i
+          ></a>
+          <a
+            href="./card.html"
+            class="header__desktop-action"
+            aria-label="Корзина"
+            ><i data-lucide="box"></i
+          ></a>
+          <button type="button" class="open--button" aria-label="Войти">
+            <i data-lucide="user"></i>
+          </button>
+          <button
+            type="button"
+            class="header__menu-toggle"
+            aria-label="Открыть меню"
+            aria-controls="header-navigation"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

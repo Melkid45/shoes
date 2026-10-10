@@ -1,0 +1,77 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.faq {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .faq__frame {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      .faq__item {
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--color-border);
+        cursor: pointer;
+        &:first-child {
+          padding-top: 32px;
+          border-top: 1px solid var(--color-border);
+        }
+        &.current {
+          .faq__item-top {
+            svg {
+              rotate: 135deg;
+              color: var(--color-primary);
+            }
+          }
+        }
+
+        &-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          svg {
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s ease;
+          }
+        }
+
+        &-bot {
+          max-height: 0;
+          transition: all 0.3s ease;
+          overflow: hidden;
+
+          p {
+            opacity: 0.6;
+            padding-top: 32px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.faq__item-top {
+  gap: 16px;
+  svg {
+    flex-shrink: 0;
+  }
+}
+@include bp.down(tablet) {
+  .faq__body {
+    gap: 32px;
+    .faq__frame {
+      gap: 24px;
+      .faq__item {
+        padding-bottom: 24px;
+        &-bot p {
+          padding-top: 24px;
+        }
+      }
+    }
+  }
+}

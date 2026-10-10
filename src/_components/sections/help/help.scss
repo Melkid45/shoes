@@ -1,0 +1,70 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.help {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    .help__heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      h2 {
+        span {
+          color: var(--color-primary);
+        }
+      }
+      p {
+        opacity: 0.6;
+        padding-right: 130px;
+      }
+    }
+    .help__items {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--color-border);
+        &:hover {
+          h3 {
+            opacity: 1;
+          }
+          svg {
+            opacity: 1;
+            rotate: -45deg;
+          }
+        }
+        h3 {
+          opacity: 0.6;
+          transition: all 0.3s ease;
+        }
+        svg {
+          transition: all 0.3s ease;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
+
+.help__body .help__heading {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  p {
+    padding-right: 0;
+  }
+}
+@include bp.down(tablet) {
+  .help__body {
+    gap: 32px;
+    .help__heading,
+    .help__items {
+      grid-template-columns: 1fr;
+    }
+  }
+}

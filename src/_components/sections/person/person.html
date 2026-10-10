@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="./person.scss">
+
+
+<section class="block block--y person">
+    <div class="container">
+        <div class="person__body">
+            <!-- @include src/_components/sections/breadcrumbs/breadcrumbs-b.html -->
+            <div class="person__frame">
+                <h1 class="heading heading--lg">
+                    Здравствуйте, Анна
+                </h1>
+                <div class="person__frame-block">
+                    <div class="person__navigation">
+                        <button class="person__navigation-item text text--md current">
+                            Мои заказы
+                        </button>
+                        <button class="person__navigation-item text text--md">
+                            Избранное
+                            <span>3</span>
+                        </button>
+                        <button class="person__navigation-item text text--md">
+                            Личные данные
+                        </button>
+                        <button class="person__navigation-item text text--md">
+                            Выйти
+                        </button>
+                    </div>
+                    <div class="person__main">
+                        <div class="person__main-bonus">
+                            <div class="bonus__text">
+                                <h2 class="heading heading--md">
+                                    Рады снова вас видеть
+                                </h2>
+                                <p class="text text--md">
+                                    Здесь можно следить за заказами, сохранять модели и использовать бонусы.
+                                </p>
+                            </div>
+                            <div class="bonus__value">
+                                <span class="heading heading--sm">
+                                    640
+                                </span>
+                                <p class="text text--xs">
+                                    бонусов доступно
+                                </p>
+                            </div>
+                        </div>
+                        <div class="person__main-sections">
+                            <div class="sections__item section__order current">
+                                <h3 class="heading heading--lg">
+                                    Мои заказы
+                                </h3>
+                                <div class="section__order-table">
+                                    <div class="table__row">
+                                        <h3 class="text text--lg">ID</h3>
+                                        <h3 class="text text--lg">Дата</h3>
+                                        <h3 class="text text--lg">Название товара</h3>
+                                        <h3 class="text text--lg">Статус</h3>
+                                        <h3 class="text text--lg">Цена</h3>
+                                    </div>
+                                    <div class="table__row">
+                                        <span data-label="ID" class="text text--md">№ 10485</span>
+                                        <span data-label="Дата" class="text text--md">31 авг. 2026</span>
+                                        <span data-label="Название товара" class="text text--md">Кеды «Движение», чёрные</span>
+                                        <span data-label="Статус" class="text text--md">Передан в доставку</span>
+                                        <span data-label="Цена" class="text text--md">12 900 ₽</span>
+                                    </div>
+                                    <div class="table__row">
+                                        <span data-label="ID" class="text text--md">№ 10482</span>
+                                        <span data-label="Дата" class="text text--md">31 авг. 2026</span>
+                                        <span data-label="Название товара" class="text text--md">Полукеды «Ритм», песочные</span>
+                                        <span data-label="Статус" class="text text--md">Получен</span>
+                                        <span data-label="Цена" class="text text--md">11 900 ₽</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sections__item section__favorite">
+                                <h3 class="heading heading--lg">
+                                    Избранное
+                                </h3>
+                                <div class="section__favorite-frame">
+                                    <!-- @include src/_components/single/product/product.html -->
+                                    <!-- @include src/_components/single/product/product.html -->
+                                    <!-- @include src/_components/single/product/product.html -->
+                                </div>
+                            </div>
+                            <div class="sections__item section__data">
+                                <h3 class="heading heading--lg">
+                                    Личные данные
+                                </h3>
+                                <form class="section__data-form" action="">
+                                    <input class="text text--md" type="text" placeholder="Ваше имя">
+                                    <input class="text text--md" type="text" placeholder="Ваша Фамилия">
+                                    <input class="text text--md" type="tel" placeholder="Номер телефона">
+                                    <input class="text text--md" type="email" placeholder="Email">
+                                    <button class="button button--primary">
+                                        Сохранить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

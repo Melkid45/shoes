@@ -1,0 +1,84 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.collection {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-inline: var(--container-padding);
+  }
+  &__frame {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+  &__model {
+    position: relative;
+    &:has(.collection__badge) .top__info > span {
+      visibility: hidden;
+    }
+    &:nth-child(even) .product__item-top {
+      background: #fafafa;
+    }
+    &:not(:first-child) .bot__action button {
+      background: #fafafa;
+      color: #25252560;
+      &:hover {
+        background: var(--color-primary);
+        color: white;
+      }
+    }
+    &:nth-child(even) .bot__action-price p {
+      display: none;
+    }
+  }
+  &__badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    padding: 16px;
+    background: var(--color-primary);
+    color: white;
+  }
+  @include bp.down(laptop) {
+    &__frame {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding-inline: var(--container-padding);
+    }
+  }
+  @include bp.down(tablet) {
+    &__body {
+      display: grid;
+      gap: 24px;
+    }
+    &__heading {
+      display: contents;
+      h2 {
+        padding-inline: var(--container-padding);
+      }
+      .button {
+        order: 3;
+        margin-inline: var(--container-padding);
+        width: auto;
+        max-width: none;
+      }
+    }
+    &__frame {
+      gap: 12px;
+    }
+    &__model:nth-child(n + 3),
+    &__badge {
+      display: none;
+    }
+    &__model .top__info > span {
+      visibility: visible;
+    }
+  }
+}

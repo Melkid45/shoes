@@ -1,0 +1,29 @@
+@use "sass:map";
+
+// Переходы выбираются по вместимости контента, размеры между ними — плавные.
+$breakpoints: (
+  mobile: 480px,
+  tablet: 768px,
+  laptop: 1024px,
+  desktop: 1280px,
+  wide: 1600px,
+);
+
+@function size($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error 'Неизвестный breakpoint: #{$name}';
+  }
+  @return map.get($breakpoints, $name);
+}
+
+@mixin down($name) {
+  @media (width <= size($name)) {
+    @content;
+  }
+}
+
+@mixin up($name) {
+  @media (width > size($name)) {
+    @content;
+  }
+}

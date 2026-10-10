@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="./catalog.scss" />
+
+<section class="block block--y catalog">
+  <div class="catalog__body">
+    <!-- @include src/_components/sections/breadcrumbs/breadcrumbs-b.html -->
+    <div class="catalog__body-frame">
+      <div class="frame__head">
+        <div class="frame__title">
+          <h1 class="heading heading--bg">Полная коллекция</h1>
+          <span class="text text--sm catalog__count">Показано 12 из 24</span>
+        </div>
+        <div class="frame__navigation">
+          <div class="frame__navigation-category">
+            <button
+              type="button"
+              aria-pressed="true"
+              class="category__item text text--md current"
+            >
+              Все модели
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              class="category__item text text--md"
+            >
+              Женская
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              class="category__item text text--md"
+            >
+              Мужская
+            </button>
+          </div>
+          <div class="frame__navigation-main">
+            <button
+              type="button"
+              class="main__filter"
+              aria-expanded="false"
+              aria-controls="catalog-filter"
+            >
+              <span class="text text--md"> Фильтры </span>
+              <i data-lucide="plus"></i>
+            </button>
+            <details class="main__sorting" data-dropdown>
+              <summary class="main__sorting-wrap">
+                <span class="text text--md">По популярности</span
+                ><i data-lucide="chevron-down"></i>
+              </summary>
+              <div class="sorting__options" aria-label="Сортировка">
+                <label
+                  ><input type="radio" name="sort" value="popular" checked />По
+                  популярности</label
+                >
+                <label
+                  ><input type="radio" name="sort" value="price-asc" />Сначала
+                  дешевле</label
+                >
+                <label
+                  ><input type="radio" name="sort" value="price-desc" />Сначала
+                  дороже</label
+                >
+                <label
+                  ><input type="radio" name="sort" value="rating" />По
+                  рейтингу</label
+                >
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+      <!-- @include ./filter.html -->
+      <div class="frame__block">
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <div class="frame__block-banner" id="size-guide-banner">
+          <div class="banner__text">
+            <h3 class="heading heading--md">Не знаете свой размер?</h3>
+            <p class="text text--md">
+              Измерьте длину стопы и сверьтесь с нашей таблицей. <br />
+              Если пара окажется неидеальной — поможем с обменом или возвратом.
+            </p>
+          </div>
+          <a class="button button--primary" href=""> Таблица размеров </a>
+        </div>
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+        <!-- @include src/_components/single/product/product.html -->
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+@use "@/assets/_styles/breakpoints" as bp;
+.order {
+  &__body, &__frame { display: grid; gap: 48px; }
+  &__block { display: grid; grid-template-columns: minmax(0,1230fr) minmax(360px,542fr); gap: 48px; align-items: start; }
+  &__form { display: grid; gap: 48px; }
+  &__form-section { display: grid; gap: 32px; }
+  .section__person { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+  input:not([type=radio]) { width: 100%; padding: 20px 32px; border: 1px solid var(--color-border); background: transparent; }
+  .section__delivery { display: grid; gap: 16px; }
+  .section__delivery-item { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 32px; border: 1px solid var(--color-border); cursor: pointer; }
+  .section__delivery-item > input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .section__delivery-item:has(input:checked) { border-color: var(--color-primary); }
+  .section__delivery-item:has(input:focus-visible) { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+  .item__main { display: flex; align-items: center; gap: 24px; min-width: 0; }
+  .checked { width: 20px; height: 20px; border: 1px solid var(--color-border); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+  input:checked + .item__main .checked { border-color: var(--color-primary); span { width: 10px; height: 10px; border-radius: 50%; background: var(--color-primary); } }
+  .item__main-text { display: grid; gap: 8px; p { color: var(--color-gray); } }
+  .item__price { flex-shrink: 0; }
+  &__preview { display: grid; gap: 48px; h3 { font-size: 32px; } }
+  &__preview-frame { padding: 32px; background: #f3f6f5; display: grid; gap: 32px; }
+  .frame__products { display: grid; gap: 24px; }
+  .frame__products-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .item__main-preview { width: 100px; height: 100px; flex-shrink: 0; background: white; img { width: 100%; height: 100%; object-fit: contain; } }
+  .item__main-name { display: grid; gap: 8px; }
+  .frame__action { display: grid; gap: 24px; }
+  .frame__action-line, .frame__action-finaly { display: flex; justify-content: space-between; gap: 16px; }
+  .frame__action-finaly { padding-top: 24px; border-top: 1px solid var(--color-border); align-items: center; }
+  .frame__action-button { display: grid; gap: 16px; .button { width: 100%; max-width: none; } p { color: var(--color-gray); } }
+  @include bp.down(desktop) { &__block { grid-template-columns: minmax(0,1.3fr) minmax(320px,1fr); gap: 32px; } .frame__products-item { flex-wrap: wrap; } }
+  @include bp.down(laptop) { &__block { grid-template-columns: 1fr; } }
+  @include bp.down(tablet) { &__body, &__frame, &__form { gap: 32px; } .section__person { grid-template-columns: 1fr; gap: 16px; } .section__delivery-item { padding: 20px 16px; flex-wrap: wrap; } &__preview-frame { padding: 24px 16px; } &__preview h3 { font-size: 24px; } }
+}
+ .order__body
+  .order__frame
+  .order__block {
+  .order__form-section:not(:first-child) {
+    padding-top: 48px;
+    border-top: 1px solid var(--color-border);
+  }
+  .section__person input {
+    line-height: 1.1;
+  }
+  .section__comment textarea {
+    width: 100%;
+    min-height: 60px;
+    height: 60px;
+    padding: 20px 32px;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    resize: vertical;
+  }
+  .order__preview {
+    gap: 48px;
+    .item__main-name h4,
+    .item__price {
+      font-family: "font", sans-serif;
+      font-size: 18px;
+    }
+    .text--md {
+      font-size: 16px;
+    }
+  }
+}
+@include bp.down(tablet) {
+  .order__body .order__frame .order__block {
+    .order__form-section:not(:first-child) {
+      padding-top: 32px;
+    }
+    .section__person .form__field:nth-child(2) {
+      order: 4;
+    }
+    .section__person .form__field:nth-child(3) {
+      order: 2;
+    }
+    .section__person .form__field:nth-child(4) {
+      order: 5;
+    }
+    .section__person .form__field:nth-child(5) {
+      order: 3;
+    }
+    .section__person .form__field:nth-child(6) {
+      order: 6;
+    }
+    .section__comment textarea {
+      height: 100px;
+      min-height: 100px;
+      padding: 18px;
+      font-size: 16px;
+    }
+    .order__preview {
+      gap: 32px;
+      .frame__products-item {
+        display: grid;
+        grid-template-columns: 100px minmax(0, 1fr);
+        gap: 8px 16px;
+        .item__main {
+          display: contents;
+          &-preview {
+            grid-row: span 2;
+            width: 100px;
+            height: 100px;
+          }
+          &-name {
+            grid-column: 2;
+            h4 {
+              font-size: 14px;
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+        .item__price {
+          grid-column: 2;
+          margin-left: 0;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

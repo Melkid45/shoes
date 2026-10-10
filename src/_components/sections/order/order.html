@@ -1,0 +1,255 @@
+<link rel="stylesheet" href="./order.scss" />
+
+<section class="block block--y order">
+  <div class="container">
+    <div class="order__body">
+      <!-- @include src/_components/sections/breadcrumbs/breadcrumbs-b.html -->
+      <div class="order__frame">
+        <h1 class="heading heading--bg">Оформление заказа</h1>
+        <form class="order__block" id="checkout" data-validate novalidate>
+          <div class="order__form">
+            <div class="order__form-section">
+              <h2 class="heading heading--md">Контактные данные</h2>
+              <div class="section__person">
+                <input
+                  class="text text--md"
+                  placeholder="Имя и фамилия"
+                  aria-label="Имя и фамилия"
+                  type="text"
+                  name="fullName"
+                  autocomplete="name"
+                  data-rule="name"
+                  required
+                />
+                <input
+                  class="text text--md"
+                  placeholder="Телефон"
+                  aria-label="Телефон"
+                  type="tel"
+                  name="phone"
+                  autocomplete="tel"
+                  data-rule="phone"
+                  required
+                />
+                <input
+                  class="text text--md"
+                  placeholder="Электронная почта"
+                  aria-label="Электронная почта"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  data-rule="email"
+                  required
+                />
+                <input
+                  class="text text--md"
+                  placeholder="Город"
+                  aria-label="Город"
+                  type="text"
+                  name="city"
+                  autocomplete="address-level2"
+                  data-rule="city"
+                  required
+                />
+                <input
+                  class="text text--md"
+                  placeholder="Полный адрес"
+                  aria-label="Полный адрес"
+                  type="text"
+                  name="address"
+                  autocomplete="street-address"
+                  data-rule="address"
+                />
+                <input
+                  class="text text--md"
+                  placeholder="Индекс"
+                  aria-label="Индекс"
+                  type="text"
+                  name="postcode"
+                  autocomplete="postal-code"
+                  data-rule="postcode"
+                  inputmode="numeric"
+                  maxlength="6"
+                />
+              </div>
+            </div>
+            <div class="order__form-section">
+              <h2 class="heading heading--md">Способ доставки</h2>
+              <div class="section__delivery">
+                <label class="section__delivery-item">
+                  <input type="radio" name="delivery" value="cdek" required />
+                  <div class="item__main">
+                    <div class="checked">
+                      <span></span>
+                    </div>
+                    <div class="item__main-text">
+                      <span class="text text--sm text--semi">
+                        СДЭК — пункт выдачи
+                      </span>
+                      <p class="text text--xs">
+                        Выберите удобный пункт после перехода к оплате
+                      </p>
+                    </div>
+                  </div>
+                  <p class="item__price text text--sm text--semi">
+                    от <span>290 ₽</span>
+                  </p>
+                </label>
+                <label class="section__delivery-item">
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value="courier"
+                    required
+                  />
+                  <div class="item__main">
+                    <div class="checked">
+                      <span></span>
+                    </div>
+                    <div class="item__main-text">
+                      <span class="text text--sm text--semi">
+                        Яндекс Доставка — курьером
+                      </span>
+                    </div>
+                  </div>
+                  <p class="item__price text text--sm text--semi">
+                    от <span>390 ₽</span>
+                  </p>
+                </label>
+                <label class="section__delivery-item">
+                  <input type="radio" name="delivery" value="pickup" required />
+                  <div class="item__main">
+                    <div class="checked">
+                      <span></span>
+                    </div>
+                    <div class="item__main-text">
+                      <span class="text text--sm text--semi">
+                        Самовывоз из магазина
+                      </span>
+                    </div>
+                  </div>
+                  <p class="item__price text text--sm text--semi">Бесплатно</p>
+                </label>
+              </div>
+            </div>
+            <div class="order__form-section">
+              <h2 class="heading heading--md">Оплата</h2>
+              <div class="section__delivery">
+                <label class="section__delivery-item">
+                  <input type="radio" name="payment" value="card" required />
+                  <div class="item__main">
+                    <div class="checked">
+                      <span></span>
+                    </div>
+                    <div class="item__main-text">
+                      <span class="text text--sm text--semi">
+                        Банковской картой, СБП
+                      </span>
+                      <p class="text text--xs">МИР, Visa, Mastercard</p>
+                    </div>
+                  </div>
+                  <p class="item__price text text--sm text--semi">
+                    Без комиссии
+                  </p>
+                </label>
+                <label class="section__delivery-item">
+                  <input type="radio" name="payment" value="cash" required />
+                  <div class="item__main">
+                    <div class="checked">
+                      <span></span>
+                    </div>
+                    <div class="item__main-text">
+                      <span class="text text--sm text--semi">
+                        Наличными курьеру
+                      </span>
+                    </div>
+                  </div>
+                  <p class="item__price text text--sm text--semi">Бесплатно</p>
+                </label>
+              </div>
+            </div>
+            <div class="order__form-section">
+              <div class="section__title">
+                <h2 class="heading heading--md">Комментарий к заказу</h2>
+                <span class="text text--sm"> Необязательно </span>
+              </div>
+              <div class="section__comment">
+                <textarea
+                  rows="3"
+                  placeholder="Например, позвоните мне перед доставкой"
+                  aria-label="Комментарий к заказу"
+                  class="text text--md"
+                  name="comment"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="order__preview">
+            <h3 class="heading heading--md">Пара уже почти ваша</h3>
+            <div class="order__preview-frame">
+              <div class="frame__products">
+                <div class="frame__products-item">
+                  <div class="item__main">
+                    <div class="item__main-preview">
+                      <img src="@/assets/_images/slide.png" alt="" />
+                    </div>
+                    <div class="item__main-name">
+                      <h4 class="heading heading--xs">Кеды «Движение»</h4>
+                      <p class="text text--sm">
+                        Чёрный / натуральная кожа <br />
+                        Размер 38
+                      </p>
+                    </div>
+                  </div>
+                  <span class="item__price heading heading--xs">
+                    12 900 ₽
+                  </span>
+                </div>
+                <div class="frame__products-item">
+                  <div class="item__main">
+                    <div class="item__main-preview">
+                      <img src="@/assets/_images/slide.png" alt="" />
+                    </div>
+                    <div class="item__main-name">
+                      <h4 class="heading heading--xs">Полукеды «Ритм»</h4>
+                      <p class="text text--sm">
+                        Чёрный / натуральная кожа <br />
+                        Размер 38
+                      </p>
+                    </div>
+                  </div>
+                  <span class="item__price heading heading--xs">
+                    11 900 ₽
+                  </span>
+                </div>
+              </div>
+              <div class="frame__action">
+                <div class="frame__action-line">
+                  <span class="text text--md">Товары (2)</span>
+                  <p class="text text--md text--semi">24 800 ₽</p>
+                </div>
+                <div class="frame__action-line">
+                  <span class="text text--md">Доставка</span>
+                  <p class="text text--md text--semi">290 ₽</p>
+                </div>
+                <div class="frame__action-finaly">
+                  <span class="text text--md">Итого</span>
+                  <p class="heading heading--xs">25 090 ₽</p>
+                </div>
+                <div class="frame__action-button">
+                  <button type="submit" class="button button--primary">
+                    Перейти к оплате
+                  </button>
+                  <p class="text text--xs">
+                    Продолжая оформление, вы сможете выбрать удобную доставку и
+                    способ оплаты.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

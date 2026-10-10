@@ -1,0 +1,234 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.card {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    &-block {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      h1 {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        span {
+          opacity: 0.6;
+        }
+      }
+      .card__frame {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 48px;
+        .card__items {
+          grid-column: span 2;
+          display: flex;
+          flex-direction: column;
+          .card__item {
+            padding: 24px;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &-information {
+              display: flex;
+              align-items: center;
+              gap: 32px;
+              .information__preview {
+                width: 142px;
+                aspect-ratio: 1/1;
+                background: #fafafa;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                  width: 80%;
+                  height: 80%;
+                  object-fit: contain;
+                }
+              }
+              .information__text {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                &-soft {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 6px;
+                  span {
+                    opacity: 0.6;
+                  }
+                }
+              }
+            }
+            &-action {
+              display: flex;
+              align-items: center;
+              gap: 100px;
+              .action__price {
+                display: flex;
+                align-items: center;
+                gap: 48px;
+                &-count {
+                  padding: 12px 24px;
+                  display: grid;
+                  grid-template-columns: repeat(3, minmax(0, 1fr));
+                  gap: 24px;
+                  border: 1px solid var(--color-black);
+                  align-items: center;
+                  svg {
+                    width: 14px;
+                    height: 14px;
+                  }
+                }
+              }
+              .action__buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                button {
+                  width: 48px;
+                  aspect-ratio: 1/1;
+                  border: 1px solid var(--color-border);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background: transparent;
+                  border-radius: 50%;
+                  cursor: pointer;
+                  svg {
+                    width: 16px;
+                    height: 16px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .card__order {
+          padding: 32px;
+          background: #f3f6f5;
+          display: flex;
+          flex-direction: column;
+          gap: 48px;
+          &-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            .form__line {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+            }
+            .form__promo {
+              width: 100%;
+              padding: 16px;
+              border: 1px solid var(--color-border);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              input {
+                width: 100%;
+                background: transparent;
+              }
+              button {
+                background: transparent;
+                cursor: pointer;
+              }
+            }
+            .form__finaly {
+              padding-top: 24px;
+              border-top: 1px solid var(--color-border);
+              display: flex;
+              justify-content: space-between;
+            }
+            .form__action {
+              display: flex;
+              flex-direction: column;
+              gap: 24px;
+              align-items: center;
+              button {
+                max-width: none;
+                width: 100%;
+                justify-content: center;
+              }
+              p {
+                opacity: 0.6;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.card__body-block .card__frame {
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+  gap: 32px;
+  align-items: start;
+  .card__items {
+    grid-column: auto;
+    .card__item {
+      gap: 24px;
+      padding-inline: 0;
+      &-information {
+        gap: 16px;
+        .information__preview {
+          flex-shrink: 0;
+          width: clamp(80px, 7.4vw, 142px);
+        }
+      }
+      &-action {
+        gap: 24px;
+        .action__price {
+          gap: 24px;
+          &-count {
+            padding: 12px;
+            gap: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@include bp.down(desktop) {
+  .card__body-block .card__frame {
+    grid-template-columns: 1fr;
+    .card__order {
+      width: 100%;
+      max-width: 640px;
+      justify-self: end;
+    }
+  }
+}
+@include bp.down(tablet) {
+  .card__body-block {
+    gap: 32px;
+    h1 {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .card__frame {
+      .card__items .card__item {
+        flex-direction: column;
+        align-items: stretch;
+        &-action {
+          justify-content: space-between;
+          .action__buttons {
+            flex-direction: row;
+          }
+          .action__price {
+            gap: 16px;
+            flex-wrap: wrap;
+          }
+        }
+      }
+      .card__order {
+        padding: 24px;
+        gap: 32px;
+      }
+    }
+  }
+}

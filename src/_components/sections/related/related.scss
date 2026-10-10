@@ -1,0 +1,45 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.related {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+  }
+  &__frame {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+.related__heading {
+  padding-inline: var(--container-padding);
+  gap: 24px;
+}
+@include bp.down(desktop) {
+  .related__frame {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@include bp.down(laptop) {
+  .related__frame {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-inline: var(--container-padding);
+  }
+}
+@include bp.down(tablet) {
+  .related {
+    gap: 32px;
+    &__heading {
+      flex-wrap: wrap;
+    }
+    &__frame {
+      gap: 24px 12px;
+    }
+  }
+}

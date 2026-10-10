@@ -1,0 +1,17 @@
+.button {
+  font-size: 18px;
+  line-height: 1.1;
+  padding: 22px 60px;
+  cursor: pointer;
+  display: flex;
+  max-width: max-content;
+  &--primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+  &--secondary {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-black);
+  }
+}

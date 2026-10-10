@@ -1,0 +1,72 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.collections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  &__item {
+    position: relative;
+    height: 440px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 30%, #0009);
+    }
+  }
+  &__content {
+    position: absolute;
+    inset-inline: 50px;
+    bottom: 50px;
+    z-index: 1;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    .button--secondary {
+      color: white;
+      border-color: #ffffff80;
+    }
+  }
+  @include bp.down(wide) {
+    &__content {
+      inset-inline: var(--container-padding);
+      .button {
+        padding-inline: 24px;
+      }
+    }
+  }
+  @include bp.down(laptop) {
+    grid-template-columns: 1fr;
+    &__item {
+      height: 340px;
+    }
+  }
+  @include bp.down(tablet) {
+    &__item {
+      height: 280px;
+    }
+    &__content {
+      inset-inline: 16px;
+      bottom: 16px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+      h2 {
+        font-size: 22px;
+      }
+      .button {
+        max-width: none;
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+      }
+    }
+  }
+}

@@ -1,0 +1,208 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  height: var(--header-height);
+  padding-block: 24px;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+  .container {
+    height: 100%;
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 100%;
+  }
+  &__logo {
+    flex-shrink: 0;
+    height: 74px;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  &__navigation > ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(24px, 5.2vw, 100px);
+  }
+  &__navigation li > a,
+  &__dropdown > summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-gray);
+    white-space: nowrap;
+    cursor: pointer;
+    padding-block: 16px;
+  }
+  &__navigation li > a:hover,
+  &__dropdown[open] > summary {
+    color: var(--color-black);
+  }
+  &__dropdown {
+    position: relative;
+    summary {
+      list-style: none;
+      &::-webkit-details-marker {
+        display: none;
+      }
+      svg {
+        width: 16px;
+        height: 16px;
+        transition: rotate 0.2s;
+      }
+    }
+    &[open] summary svg {
+      rotate: 180deg;
+    }
+  }
+  &__submenu {
+    position: absolute;
+    top: calc((var(--header-height) + 100%) / 2);
+    left: -24px;
+    min-width: 280px;
+    padding: 16px 24px;
+    background: white;
+    border: 0;
+    border-top: 2px solid var(--color-primary);
+    box-shadow: 0 16px 32px #2525250a;
+    a {
+      display: block;
+      padding: 16px 0;
+      color: var(--color-gray);
+      border-bottom: 1px solid var(--color-border);
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  &__action-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+    width: 130px;
+    svg {
+      width: 20px;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+    input {
+      width: 100%;
+      min-width: 0;
+      background: transparent;
+    }
+  }
+  &__action-buttons {
+    display: flex;
+    gap: 12px;
+    a,
+    button {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      svg {
+        width: 24px;
+        height: 24px;
+        opacity: 0.6;
+      }
+      &:hover svg {
+        opacity: 1;
+      }
+    }
+    button.header__menu-toggle {
+      display: none;
+    }
+  }
+  &__mobile-links {
+    display: none;
+  }
+
+  @include bp.down(wide) {
+    &__navigation > ul {
+      gap: clamp(20px, 3vw, 48px);
+    }
+    &__action {
+      gap: 16px;
+    }
+  }
+  @include bp.down(desktop) {
+    padding-block: 18px;
+    &__logo {
+      height: 43px;
+    }
+    &__action-search {
+      display: none;
+    }
+    &__action-buttons {
+      .header__desktop-action {
+        display: none;
+      }
+      a,
+      button {
+        width: 42px;
+        height: 42px;
+      }
+      button.header__menu-toggle {
+        display: flex;
+      }
+    }
+    &__navigation {
+      display: none;
+      position: fixed;
+      inset: var(--header-height) 0 0;
+      background: white;
+      padding: 24px var(--container-padding);
+      overflow-y: auto;
+      &.is-open {
+        display: block;
+      }
+      > ul {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+      }
+      li {
+        border-bottom: 1px solid var(--color-border);
+      }
+      li > a,
+      summary {
+        justify-content: space-between;
+        padding-block: 20px;
+      }
+    }
+    &__submenu {
+      position: static;
+      box-shadow: none;
+      border: 0;
+      padding: 0 0 16px 12px;
+    }
+    &__mobile-links {
+      display: grid;
+      gap: 24px;
+      padding-top: 32px;
+      color: var(--color-gray);
+    }
+  }
+}

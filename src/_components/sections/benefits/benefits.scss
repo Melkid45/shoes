@@ -1,0 +1,105 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.benefits {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+  &__frame {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #a8bcb5;
+    }
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 40px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      border: 5px solid var(--color-primary);
+    }
+  }
+  &__number {
+    color: #a8bcb5;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    p {
+      color: #79817e;
+    }
+  }
+  @include bp.down(laptop) {
+    &__frame {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      &::before {
+        width: 1px;
+        height: auto;
+        inset: 8px auto 30px 0;
+      }
+    }
+    &__item {
+      flex-direction: row;
+      gap: 24px;
+      padding: 0 0 0 18px;
+      &::before {
+        width: 14px;
+        height: 14px;
+        border-width: 2px;
+        top: 4px;
+        left: -7px;
+      }
+    }
+    &__number {
+      min-width: 20px;
+    }
+    &__body {
+      gap: 40px;
+    }
+  }
+  @include bp.down(tablet) {
+    &__item {
+      gap: 20px;
+    }
+    &__text {
+      gap: 12px;
+      h3 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    &__number {
+      font-size: 16px;
+    }
+  }
+}
+
+@include bp.down(tablet) {
+  .benefits .home__heading .text--lg {
+    font-size: 14px;
+  }
+}

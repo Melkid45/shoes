@@ -1,0 +1,83 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+@use "./assets/_styles/reset";
+@use "./assets/_styles/variables";
+@use "./assets/_styles/typography";
+@use "./assets/_styles/block";
+@use "./assets/_styles/button";
+@use "./assets/_styles/forms";
+body {
+  font-family: "font", sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.container {
+  width: min(100% - var(--container-padding) * 2, var(--container-width));
+  margin-inline: auto;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-height) + 24px);
+  scrollbar-gutter: stable;
+}
+body {
+  padding-top: var(--header-height);
+}
+body:has(dialog:modal),
+body:has(.header__navigation.is-open) {
+  overflow: hidden;
+}
+[hidden] {
+  display: none !important;
+}
+input,
+textarea,
+select {
+  min-width: 0;
+  max-width: 100%;
+}
+main {
+  overflow-wrap: break-word;
+}
+.button {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+.block--hero {
+  padding-top: 0;
+}
+.block--y {
+  padding-top: 32px;
+}
+@include bp.down(desktop) {
+  :root {
+    --header-height: 80px;
+  }
+}
+@include bp.down(tablet) {
+  .text--md {
+    font-size: 16px;
+  }
+  .button {
+    padding: 16px 24px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+  main br {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,211 @@
+<dialog class="filter" id="catalog-filter" aria-labelledby="filter-title">
+  <form class="filter__form">
+    <div class="filter__head">
+      <h2 class="text text--md" id="filter-title">Фильтры</h2>
+      <button type="button" class="filter__close" aria-label="Закрыть фильтр">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="filter__fields">
+      <fieldset>
+        <legend>Выберите размер:</legend>
+        <div class="filter__sizes">
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="36" /><span
+              >36</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="37" /><span
+              >37</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="38" /><span
+              >38</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="39" /><span
+              >39</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="40" /><span
+              >40</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="41" /><span
+              >41</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="42" /><span
+              >42</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="43" /><span
+              >43</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="44" /><span
+              >44</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="45" /><span
+              >45</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="46" /><span
+              >46</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="size" value="47" /><span
+              >47</span
+            ></label
+          >
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Выберите материал:</legend>
+        <div class="filter__materials">
+          <label class="filter__option"
+            ><input type="checkbox" name="material" value="leather" /><span
+              >Кожа</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="material" value="cotton" /><span
+              >Хлопок</span
+            ></label
+          >
+          <label class="filter__option"
+            ><input type="checkbox" name="material" value="suede" /><span
+              >Замша</span
+            ></label
+          >
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Выберите цвет:</legend>
+        <div class="filter__colors">
+          <label class="filter__color filter__color--black"
+            ><input
+              type="checkbox"
+              name="color"
+              value="black"
+              aria-label="Чёрный" /><span aria-hidden="true"></span
+          ></label>
+          <label class="filter__color filter__color--white"
+            ><input
+              type="checkbox"
+              name="color"
+              value="white"
+              aria-label="Белый" /><span aria-hidden="true"></span
+          ></label>
+          <label class="filter__color filter__color--brown"
+            ><input
+              type="checkbox"
+              name="color"
+              value="brown"
+              aria-label="Коричневый" /><span aria-hidden="true"></span
+          ></label>
+          <label class="filter__color filter__color--yellow"
+            ><input
+              type="checkbox"
+              name="color"
+              value="yellow"
+              aria-label="Жёлтый" /><span aria-hidden="true"></span
+          ></label>
+          <label class="filter__color filter__color--gray"
+            ><input
+              type="checkbox"
+              name="color"
+              value="gray"
+              aria-label="Серый" /><span aria-hidden="true"></span
+          ></label>
+          <label class="filter__color filter__color--green"
+            ><input
+              type="checkbox"
+              name="color"
+              value="green"
+              aria-label="Зелёный" /><span aria-hidden="true"></span
+          ></label>
+        </div>
+      </fieldset>
+      <div class="filter__price-stock">
+        <fieldset class="filter__price">
+          <legend>Цена:</legend>
+          <div class="filter__price-inputs">
+            <input
+              type="number"
+              name="minPrice"
+              min="0"
+              step="1"
+              placeholder="3 000 ₽"
+              aria-label="Минимальная цена"
+            /><span>—</span
+            ><input
+              type="number"
+              name="maxPrice"
+              min="0"
+              step="1"
+              placeholder="16 000 ₽"
+              aria-label="Максимальная цена"
+            />
+          </div>
+          <input
+            type="range"
+            class="filter__range"
+            min="3000"
+            max="20000"
+            step="100"
+            value="16000"
+            aria-label="Максимальная цена ползунком"
+          />
+        </fieldset>
+        <label class="filter__stock"
+          >В наличии:<input type="checkbox" name="stock" /><span
+            aria-hidden="true"
+          ></span
+        ></label>
+      </div>
+    </div>
+    <div class="filter__actions">
+      <div class="filter__tags" aria-label="Подборки обуви">
+        <button type="button" class="filter__tag current">
+          Все модели <span>14</span>
+        </button>
+        <button type="button" class="filter__tag">
+          Кеды на лето <span>7</span>
+        </button>
+        <button type="button" class="filter__tag">
+          Черные ботинки <span>4</span>
+        </button>
+        <button type="button" class="filter__tag">
+          Полуботинки красивые <span>3</span>
+        </button>
+        <button type="button" class="filter__tag">
+          Туфли черные <span>1</span>
+        </button>
+        <button type="button" class="filter__tag">
+          Слипоны качественные <span>1</span>
+        </button>
+        <button type="button" class="filter__tag">
+          Обувь на весну <span>1</span>
+        </button>
+        <button type="button" class="filter__tags-all">Все</button>
+      </div>
+      <button type="submit" class="button button--primary">Применить</button>
+      <button type="reset" class="button button--secondary">
+        Отменить выбор
+      </button>
+    </div>
+  </form>
+</dialog>

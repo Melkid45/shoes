@@ -1,0 +1,56 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.who {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    .who__heading {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      p {
+        opacity: 0.6;
+      }
+    }
+    .who__frame {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      .who__item {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        img {
+          width: 100%;
+          aspect-ratio: 16/9;
+          object-fit: cover;
+        }
+        &-text {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          p {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include bp.down(laptop) {
+  .who__body .who__heading {
+    gap: 32px;
+  }
+}
+@include bp.down(tablet) {
+  .who__body {
+    gap: 32px;
+    .who__heading,
+    .who__frame {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.testimonials {
+  &__body {
+    display: grid;
+    gap: 48px;
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  &__frame {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 36px;
+    background: #f3f6f5;
+  }
+  &__source {
+    color: #79817e;
+  }
+  &__rating {
+    display: flex;
+    gap: 4px;
+    color: var(--color-primary);
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  }
+  &__person {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #79817e;
+    margin-top: auto;
+  }
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    flex-shrink: 0;
+  }
+  @include bp.down(laptop) {
+    &__frame {
+      grid-template-columns: 1fr;
+    }
+  }
+  @include bp.down(tablet) {
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    &__heading {
+      display: contents;
+      .button {
+        order: 3;
+        max-width: none;
+      }
+    }
+    &__item {
+      padding: 24px;
+      gap: 16px;
+      > .text--lg {
+        font-size: 18px;
+      }
+    }
+  }
+}

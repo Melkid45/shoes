@@ -1,0 +1,126 @@
+@use "@/assets/_styles/breakpoints" as bp;
+
+.request {
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 64px;
+    border-top: 1px solid var(--color-border);
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      p {
+        opacity: 0.6;
+      }
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 900px;
+      width: 100%;
+      .form__inputs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 16px;
+        column-gap: 26px;
+
+        input {
+          padding: 24px 32px;
+          border: 1px solid var(--color-border);
+          color: var(--color-black);
+          &:last-child {
+            grid-column: span 2;
+          }
+        }
+      }
+
+      .form__action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+
+        &-checkbox {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          div {
+            width: 20px;
+            aspect-ratio: 1/1;
+            flex-shrink: 0;
+            border: 1px solid var(--color-border);
+            position: relative;
+            transition: all 0.3s ease;
+
+            &:has(input:checked) {
+              background: var(--color-primary);
+              border-color: var(--color-primary);
+            }
+
+            input {
+              position: absolute;
+              inset: 0;
+              z-index: 1;
+              cursor: pointer;
+              opacity: 0;
+            }
+          }
+
+          p {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}
+
+.request__body {
+  gap: 48px;
+  &-text {
+    flex: 1;
+  }
+  &-form {
+    flex: 1;
+    min-width: 0;
+    .form__inputs input {
+      width: 100%;
+    }
+    .form__action {
+      flex-wrap: wrap;
+    }
+  }
+}
+@include bp.down(tablet) {
+  .request__body {
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 40px;
+    &-form {
+      width: 100%;
+      .form__inputs {
+        grid-template-columns: 1fr;
+        input {
+          padding: 18px;
+          &:last-child {
+            grid-column: auto;
+          }
+        }
+      }
+      .form__action {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 24px;
+        .button {
+          max-width: none;
+        }
+      }
+    }
+  }
+}

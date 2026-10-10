@@ -1,0 +1,26 @@
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.form__error {
+  color: #b42318;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.form__error:empty {
+  display: none;
+}
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #b42318 !important;
+}
+.section__delivery-item:has(input[aria-invalid="true"]),
+.action__checkbox:has(input[aria-invalid="true"]) > div {
+  border-color: #b42318;
+}
+.section__delivery-item:has(input:focus-visible) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
