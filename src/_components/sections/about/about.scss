@@ -113,3 +113,19 @@
     }
   }
 }
+
+.about {
+  &__brands { display: flex; align-items: center; gap: 32px; img:first-child { width: 200px; height: auto; } img:last-child { width: 72px; height: auto; } }
+  &__partners, &__story { display: grid; gap: 24px; }
+  &__gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; } }
+  @include bp.down(laptop) { &__gallery { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @include bp.down(tablet) { &__gallery { gap: 12px; } &__brands { gap: 24px; img:first-child { max-width: calc(100% - 96px); } } &__story .button { width: 100%; max-width: none; } }
+}
+
+.about__body .about__frame .about__main {
+  > img { min-width: 0; }
+  .about__main-text { min-width: 0; }
+  .about__brands img { height: auto; object-fit: contain; flex-shrink: 0; }
+  .about__brands img:first-child { width: 200px; }
+  .about__brands img:last-child { width: 72px; }
+}

@@ -23,7 +23,22 @@ export function initNavigation() {
     if (event.target.closest("a")) closeMenu();
   });
   const dropdowns = [...document.querySelectorAll("[data-dropdown]")];
+  const hoverMenu = matchMedia("(width > 1280px) and (hover: hover) and (pointer: fine)");
   dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener("pointerenter", () => {
+      if (hoverMenu.matches) dropdown.open = true;
+    });
+    dropdown.addEventListener("pointerleave", () => {
+      if (hoverMenu.matches) dropdown.open = false;
+    });
+    dropdown.querySelector("summary").addEventListener("click", (event) => {
+      // На десктопе мышью управляет наведение; клавиатура и тач сохраняют details.
+      if (hoverMenu.matches && event.detail > 0) event.preventDefault();
+    });
+    dropdown.addEventListener("focusout", (event) => {
+      if (!dropdown.contains(event.relatedTarget) && !dropdown.matches(":hover"))
+        dropdown.open = false;
+    });
     dropdown.addEventListener("toggle", () => {
       if (dropdown.open)
         dropdowns.forEach((other) => {

@@ -72,6 +72,15 @@
     border: 0;
     border-top: 2px solid var(--color-primary);
     box-shadow: 0 16px 32px #2525250a;
+    @media (width > 1280px) and (hover: hover) and (pointer: fine) {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        inset-inline: 0;
+        height: calc(var(--header-height) / 2);
+      }
+    }
     a {
       display: block;
       padding: 16px 0;

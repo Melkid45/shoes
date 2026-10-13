@@ -3,8 +3,14 @@
 .construction {
   &__diagram {
     position: relative;
-    aspect-ratio: 1920 / 1222;
     background: #e8f4ef;
+  }
+  &__canvas {
+    position: relative;
+    width: min(100%, calc((100svh - var(--header-height) - 32px) * 1920 / 1222));
+    margin-inline: auto;
+    aspect-ratio: 1920 / 1222;
+    container-type: inline-size;
   }
   &__shoe {
     position: absolute;
@@ -38,17 +44,17 @@
     position: absolute;
     z-index: 1;
     h3 {
-      font-size: clamp(13px, 1.25vw, 24px);
-      margin-bottom: 22px;
+      font-size: clamp(13px, 1.25cqw, 24px);
+      margin-bottom: clamp(8px, 1.146cqw, 22px);
     }
     p {
       color: #79817e;
-      font-size: clamp(11px, 0.833vw, 16px);
+      font-size: clamp(11px, 0.833cqw, 16px);
     }
     &--lining {
       left: 7.7%;
       top: 8.8%;
-      width: 20%;
+      width: 25%;
     }
     &--support {
       left: 50.5%;
@@ -104,6 +110,7 @@
     }
   }
   @include bp.down(laptop) {
+    &__canvas { display: contents; }
     &__diagram {
       aspect-ratio: auto;
       display: flex;
